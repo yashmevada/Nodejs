@@ -1,0 +1,299 @@
+
+                                       Date: 23-01- 23
+
+Node.js global Object
+1.__dirname:-- directory provide kre che....
+2.--filename:-- file name provide kre che.....
+3.Console:
+
+-- 3 type of console function.
+ 1.console.log()--message display karva mate.
+ 2.console.error()-jo error occure thay to tene render karva mate...
+ 3.console.warn()-- worning meassage display karva mate..
+
+4.Buffer:
+Node.js provides Buffer class to store raw data similar to an array of integers but corresponds to a raw memory allocation outside the V8 heap. Buffer class is used because pure JavaScript is not nice to binary data. So, when dealing with TCP streams or the file system, it's necessary to handle octet streams.
+
+Buffer class is a global class. It can be accessed in application without importing buffer module.
+
+Create an uninitiated buffer: Following is the syntax of creating an uninitiated buffer of 10 octets:
+var buf = new Buffer(10);  
+Create a buffer from array: Following is the syntax to create a Buffer from a given array:
+var buf = new Buffer([10, 20, 30, 40, 50]);   
+Create a buffer from string: Following is the syntax to create a Buffer from a given string and optionally encoding type:
+var buf = new Buffer("Simply Easy Learning", "utf-8");    
+
+
+
+
+
+
+                                                        Date: 24-01-23
+
+1.nodejs REPL
+
+REPL ae nodejs provide kre che aema aapde code ne manuplate kre sakye che and code ne debuug kri sakye che...
+
+jem windows ma cmd hoy and linux ma shell hoi aevi rite nodejs pan REPL provide kre che........
+
+2.nodejs core modules 
+
+core mudules in build hoi che.. biji badhi lunguage ma aapde doenload and import karvu padtu htu.... nodejs ma Simply require() 
+function no use kri ne aapde module use karva na hoi aenu name lakhvanu..
+
+  note: " syncronuse process mate method na name pachi sync lage che..for example "writeFileSync()"....but asyncronuse ma au nathi 
+          ..aema only method name j hoi che...for example "writefile().."
+
+--> 1. CRUD operation in filesystem using "fs" module...
+     --> mkdirsync() -- folder bnav va mate..
+     --> writeFileSync() -- file bnav va mate..
+     --> appendfileSync() -- file append karva mate.
+     --> readFileSync() -- data read karva mate ..but buffer no uses karine.....aetle ae buffer na data ne tostring() function no 
+                            use kri ne file na data ne string na form ma get kriye... and jo tostring() no use na karvo hoi to encoding 
+                            "utf-8 " no use karvu..
+    --> rename(oldname,newname) -- file ne rename karvamate...
+    --> unlinkfile() --  file ne delete karva mate..
+
+-->2.http server created by own.
+   --> "http" module no use karvu..
+   --> createServer((req,res)=> { res.end{"meassage"} }) -- create method no use krine aapde potanu server bnavi sakye chiye.
+         aema req and res parameter no use thay che...and res.end no use keine je meassage hoi te print kravi devano...
+   --> server.lisen(portnumber,local address, call back function)-- aeno use ckeck karva mate thay che k server create thayu che k 
+                                                                    nai....
+                            
+-->3.npmmodule 
+   --> npm module no use krine aapde without any code...use kri sakye che......example "chalk " module no use krine aapde colore 
+       provide kri sakye comd ma je out pou aave ama..
+  --> validator no us krine aapde email validation kri sakye che...
+  -->  bija badha module pan che je aapde use kri sakye che...
+
+ note:" je module use karvu hoi ne ae google per npm website per jay ne tyathi install kri levanu..."
+
+ -->4.path module
+    --> path module no use krine aapde directory name and aapdi filr nu name su che ae..and aapdi file nu extension su che ae.
+        ae badhu aapde jani sakye che,..aena mate differant differant mathod aave che..
+ -->5.os module
+    --> os module no us krin aapde aapda os ni information jani sakye che..
+        like , aapda system ketla bit nu che..ownnwr name,used memmory and etc..........
+        aena mate differant differant method aave che...ae node.org ni official web site perthi mali jse....
+ -->6.importExport module
+   --> aa module ma aapde aapdu potanu model bnavi ne inport or export kri sakye che...
+
+                                                  Date: 25-01-23
+
+-->1.json file in node
+   --> json file ae JavaScript Object notation che....
+   --> node ma aapde object data ne json ma convert kri sakye che.
+   --> object data mathi node ma conver krvu hoi to JSON.stringify(data) method no use thay che...
+   --> and jo json data ne object data ma convert karvu hoi to JSON.parse(data) method no use thay che...
+   --> nodejs ma aapde biji file mathi data ne read krine json ma or object ma convert kri sakye....
+
+-->2. json Api
+   --> json api ma aapde aapda potani api ne server per call kri sakye che...
+   --> aena mate aapde server create karvanu and readFileSync(""file path","utf-8") method no use karvo.
+
+-->3.Event
+   --> node js ma aapde aapda potani event bnavi sakye che...
+   --> aema event global module nu use thay che..
+   --> aema .on methode no use thay che..  .on() method thi aapde jyare event call thay tyare su display krav vu ae kri sakye...
+       syntax:" .on("event name",()=>{ console.log("meassage0")})"  
+   --> and jyare event call akrvani hoi tyare Event.emit() method no use thay che..
+
+   note:
+    jyare event mate variable use karye tyare variable no first character capital hovo joy ye....
+
+-->4.streaming
+   --> streaming aetle je aapde live viode joy ye or song sabhadye and etc without doenloading whole video...
+   --> streaming ma aapde createReadStream("file name") method no use thay che...
+   --> and pachi .on("data",(chunkdata)=>{ console.log(chunkdata)} ) on event ni ander 
+       data event hoi aave che..je data ne read kre che..
+   --> and .on("end"()=>{ console.log(data)}) end event jyare no more data at file tyare aa event use thay che ...
+       end karva mate...
+   --> .on("error",(err)=>{ console.log(err)}) error no use jyare error aave tyare display karva mate thay che....
+   --> .pipe() method pan hoi che....aema aapde direct data ne read krine jya display krav vu hoi tyare direct kravi sakye..
+      pachi aapde .on() no use ni karvu pade....
+
+-->5.routting
+  --> routting means je request aave aene route karvu...
+  --> aapde if else condition use krine request ne aapde route kravi sakye...
+
+
+                                                           Date: 26-01-23
+
+-->1. PLANET-PROJECT
+   --> kepler.csv file ne read kravi htu...server per..
+
+-->2. Express.js
+   --> express.js is a nodejs framework which use to develop a web application..
+   --> express ne install karva mate termina per npm install express command lakhvanu..\
+   --> express module ne use karva mate require("express") no use thay che..
+   --> and ak variable create karvano express() function call kre ne...
+       ex" const express=require(" express")
+           const app= express()".
+   --> app.get("/",(req,res)=>{ app.send(" meassge..")}) method thi request and response mate tha che..
+       nodejs ma .on() no use thato hto....express js ma .get() method no use thay che..
+   --> node js ma response display karva mate res.end() method no use thay che..
+   --> express js ma response display karva mate app.send() method no use thay che...
+ 
+   --> app.get(express.static(data)) express.static():
+       The express.static() function is a built-in middleware function in Express. 
+       It serves static files and is based on serve-static.
+      --> aape aapdi web site btavi hoi to ae web site ne express.static() mrthod thi use thay che....
+
+   note: 
+    express js me server pe routting easyly kar sakte he as compare tu node js..
+
+
+                                                        Date: 27-01-23
+
+   -->1.MongoDB
+      --> MongoDB ne first download karvu..
+      --> then terminal ma mongo.exe command run krav vu jethi data base ni file execute thay.
+      --> show dbs command ni help thi ketla database che ae check kri sakye che..
+      --> new create karvu hoi tyare use databasename lakhvu..
+          --> use comand ae jo data base na hoi to ae name no create karse ...and 
+              jo ae name no hse to ae data base per redirect karse... 
+      --> jo koi data insert karvu hoi to db.databasename.insert() method no us thay che..
+         --> ak field insert karvu hoi to db.databasename.insertOne() method no use thay he.. 
+         -->ak karta vdhare  field insert karvu hoi to db.databasename.insertMany() method no use thay he..
+      --> db.databasename.find() method no use find karva mate thay che..
+      --> db.databasename.update() method no use update karva mate thay che..
+      --> db.databasename.delete() method no use delete karva mate che...
+      --> db command ae aapde current kyi directory per che ae dinote kre che....
+
+   --> Nasa-project..
+   
+   
+                                                      Date: 30-01-23
+
+   1. MongoDB connection using node code..
+
+     --> node js ma aapde mongoose no use karie che....jethi long code na lakhvo pade...
+     --> mongooes ne require function thi call(import) krava ..
+     --> and next mongoose.connect() method no use karva no..
+
+   2. Add data in mongodb using node js  code
+
+     --> data add kriye tyare aapde first Schema define kriye che with the help og .Schema() method..
+     --> schema etle aapde je data add karva na che anu structure..
+     --> aemaaapde ak class bnav vu pade ane ae class ne use krine mongooes.model("collection name","Schema name")method
+       no use kriye chiye..     
+    --> comparision opretor and logocal operator pan use thay che..
+    
+    3. Update data in mongodb
+
+     --> classname.findByIdAndupdate(id,set,option) method no use thay che...
+         --> id ma aapde je data add karva no che aeni id..
+         --> set ma aapde je column add karva na che ae and aenu description...
+      
+   4.Delete data in mongodb
+     
+     --> classname.findByIdAndDelte(id) metod no use thay che...
+     --> id aetle je delete karva na che aeni id,..
+
+
+   Extra work
+
+   --> two coding problem solve of easy level..
+       1. factorial number
+       2.reverse string.. 
+
+   
+                                Date: 31-01-23
+
+   
+  1. REST API 
+
+   --> Representational State Transfer (REST) is an architectural style that defines a 
+       set of constraints to be used for creating web services. REST API is a way of accessing
+       web services in a simple and flexible way without having any processing.
+ 
+   2. Cluster in node
+
+   --> javaPlaylist ae single thread process che..aetle loi motu task hoi to aena mate time ley che...
+   --> but cluster no use kri ne aapde havily process ne aapde ae process na alga alag instance bnavi ne 
+       alag alag cpu na core ne aape che .jethi process fastly run thay che..
+   --> cluster bnav ti vakhte 2 alag alga process create thay che.....
+       1.primary process jene fork process pan kehvay che...
+       2.other process jene worker process pan kehvay che.....
+   --> cluster.fork() method primary process mate use tha che...
+                            
+                            
+                            Date: 02-02-23
+
+    --> create node project to fetch api of mens 100 meteplimpics..
+    --> create our own REST-API in NODEJS.. 
+
+                               Date: 03-02-23 
+
+   --> create our own application of SSL-SERVER..
+                           
+                               Date:04-02-23
+    
+    -->  14..Node security + Authentication (progress)
+
+                              Date:06-02-23
+
+    --> 15.. countinous integration / continous develop 
+
+                               Date:07-02-23   
+
+    -->
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+============================
+Today's Date: 30-01-23
+
+InTime :- 09:30 am
+OutTime :- 06:30 PM
+
+Name : Yashlal Marvadi
+LearnTechnology : Nodejs
+
+Today's Learn / work Hours :   8 hours.
+Total Learn /work Hours :  48 hours.
+
+Today's Learn : 
+ list of modules 
+ 1. Testing APIs
+  --> Testing in Node
+  --> Testing APIs with jest
+
+2. Improving Node performance (progress)
+   --> node server performance
+   --> Building A simple Blocking server
+   --> real life Blocking functions
+
+*STATUS OF LEARNING / WORKING*:  all good.
+
+
+Evening  Update :
+
+Date: 23/01/2022
+Name: Marvadi Yashlal
+In Time :11:00 AM
+Out Time :06:30 PM
+Name :Yashlal Marvadi
+Learn Technology :Nodejs
+Today's Learning Hours : 8 Hours
+
+Today's learn :
+list of modules
+1.introduction
+2.Node.js Fundamentals and Environment setup
+3.Node.js Fundamentals internals
+
+status: Everything Good
+
